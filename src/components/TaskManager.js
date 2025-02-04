@@ -13,7 +13,7 @@ const TaskManager = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/tasks');
+        const response = await axios.get('https://backend-client-dashboard.onrender.com/api/tasks');
         setTasks(response.data);
         setLoading(false);
       } catch (err) {
@@ -28,7 +28,7 @@ const TaskManager = () => {
   const addTask = async () => {
     if (newTask.trim() !== '') {
       try {
-        const response = await axios.post('http://localhost:5000/api/tasks', { text: newTask });
+        const response = await axios.post('https://backend-client-dashboard.onrender.com/api/tasks', { text: newTask });
         setTasks([...tasks, response.data]);
         setNewTask('');
       } catch (err) {
@@ -40,7 +40,7 @@ const TaskManager = () => {
   // Delete task
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      await axios.delete(`https://backend-client-dashboard.onrender.com/api/tasks/${id}`);
       setTasks(tasks.filter(task => task._id !== id));
     } catch (err) {
       setError('Failed to delete task');
@@ -50,7 +50,7 @@ const TaskManager = () => {
   // Toggle task completion status
   const toggleComplete = async (id, completed) => {
     try {
-      const response = await axios.patch(`http://localhost:5000/api/tasks/${id}`, {
+      const response = await axios.patch(`https://backend-client-dashboard.onrender.com/api/tasks/${id}`, {
         completed: !completed
       });
       setTasks(tasks.map(task => (task._id === id ? response.data : task)));

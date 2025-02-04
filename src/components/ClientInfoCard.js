@@ -25,7 +25,7 @@ const ClientInfoCard = () => {
         }
   
         // Send token in the Authorization header
-        const response = await axios.get("http://localhost:5000/api/client-info", {
+        const response = await axios.get("https://backend-client-dashboard.onrender.com/api/client-info", {
           headers: { Authorization: `Bearer ${token}` },
         });
   
@@ -56,7 +56,7 @@ const ClientInfoCard = () => {
         return;
       }
 
-      await axios.post("http://localhost:5000/api/update-client", clientInfo, {
+      await axios.post("https://backend-client-dashboard.onrender.com/api/update-client", clientInfo, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

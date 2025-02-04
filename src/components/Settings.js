@@ -36,7 +36,7 @@ const Settings = () => {
 
       // Send change password request to backend
       const response = await axios.post(
-        'http://localhost:5000/api/change-password',
+        'https://backend-client-dashboard.onrender.com/api/change-password',
         { oldPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );

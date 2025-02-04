@@ -23,7 +23,7 @@ export const ClientProvider = ({ children }) => {
       }
 
       try {
-        const response = await axios.get('http://localhost:5000/api/client-info', {
+        const response = await axios.get('https://backend-client-dashboard.onrender.com/api/client-info', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setClientInfo(response.data);

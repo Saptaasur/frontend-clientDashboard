@@ -28,7 +28,7 @@ const ProjectInfoCard = () => {
         }
 
         // Send token in the Authorization header
-        const response = await axios.get("http://localhost:5000/api/project-info", {
+        const response = await axios.get("https://backend-client-dashboard.onrender.com/api/project-info", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -63,7 +63,7 @@ const ProjectInfoCard = () => {
 
       // If editing an existing project, update it
       if (editingProjectId) {
-        await axios.post("http://localhost:5000/api/update-project", {
+        await axios.post("https://backend-client-dashboard.onrender.com/api/update-project", {
           ...projectInfo,
           projectId: editingProjectId, // Send the project ID to update the specific project
         }, {
@@ -73,7 +73,7 @@ const ProjectInfoCard = () => {
         alert("Project updated successfully!");
       } else {
         // If it's a new project, add it
-        await axios.post("http://localhost:5000/api/add-project", projectInfo, {
+        await axios.post("https://backend-client-dashboard.onrender.com/api/add-project", projectInfo, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -85,7 +85,7 @@ const ProjectInfoCard = () => {
       setEditingProjectId(null); // Reset editing project ID
 
       // Fetch the updated projects list
-      const response = await axios.get("http://localhost:5000/api/project-info", {
+      const response = await axios.get("https://backend-client-dashboard.onrender.com/api/project-info", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(response.data); // Update the project list
@@ -108,7 +108,7 @@ const ProjectInfoCard = () => {
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/delete-project/${projectId}`, {
+      await axios.delete(`https://backend-client-dashboard.onrender.com/api/delete-project/${projectId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

@@ -17,7 +17,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { email, password });
+      const response = await axios.post('https://backend-client-dashboard.onrender.com/auth/login', { email, password });
 
       console.log("Token received:", response.data.accessToken); // Debugging token
       localStorage.setItem('token', response.data.accessToken); // Save JWT token
